@@ -12,8 +12,10 @@ base_datos = os.getenv("base_datos")
 usuario = os.getenv("usuario")
 password = os.getenv("password")
 driver = os.getenv("driver")
+trust_server_certificate = os.getenv("trust_server_certificate", "no")
 
 params = urllib.parse.quote_plus(
+    f"TrustServerCertificate={trust_server_certificate};"
     f"DRIVER={driver};SERVER={servidor};DATABASE={base_datos};"
     f"UID={usuario};PWD={password}"
 )
@@ -32,6 +34,7 @@ def create_database_if_not_exists():
         )
 
     server_params = urllib.parse.quote_plus(
+        f"TrustServerCertificate={trust_server_certificate};"
         f"DRIVER={driver};SERVER={servidor};UID={usuario};PWD={password}"
     )
     server_url = f"mssql+pyodbc:///?odbc_connect={server_params}"
@@ -62,4 +65,3 @@ def get_db():
 if __name__ == "__main__":
     create_database_if_not_exists()
     print(f"Base de datos '{base_datos}' verificada/creada correctamente.")
-

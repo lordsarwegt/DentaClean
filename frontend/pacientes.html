@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-surface text-on-surface font-body-md"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between p-space-md"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-xs"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-[20px]">dentistry</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Denta Clean</span><span class="font-label-sm text-label-sm text-on-surface-variant">Consultorio Digital</span></div></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="citas" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span>Citas</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 transition-colors bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-path="pacientes" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Pacientes</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="tratamientos" href="#"><span class="material-symbols-outlined text-[20px]">medical_services</span><span>Tratamientos</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="facturacion" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Facturación</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="configuracion" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Configuración</span></a></nav></div><div class="p-space-sm bg-surface-container rounded-lg flex items-center gap-space-sm"><div class="w-2 h-2 rounded-full bg-status-confirmed"></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-semibold">Clínica Operativa</span><span class="font-body-sm text-body-sm text-on-surface-variant">Sede Central</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex-1 max-w-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-lowest text-on-surface placeholder:text-outline rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container/20" placeholder="Buscar por nombre, expediente o DNI..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Notificaciones"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Dr. Alejandro Ramos</span><span class="font-label-sm text-label-sm text-on-surface-variant">Cirujano Odontólogo</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WfHJanvFdkCl5aPfZ06xUck4CyfcvyDm88Q43BIzAsGRXROAX2M11fY5BovQ66PA8J1N-fb25dPeutW6SCC7hIjBbasXQurxF3Ky6-J_IuPmBlKfVBcmFdqYpj3vtdskoJFfkWPiLPnUbR8N29yBHvgqd_7oBJF8G-N9CwB9LPWSeG2BhRW9JZE7BcVb1UZFMux2vD7-SOzieJ5ShgkCoa1ANB5V3Bsg1o7i8F1usrhnm85VyUYaxM4X93IOQPnv1A5UA5StMFQZM"/></div></div></header><main class="w-full pt-16 bg-surface px-gutter min-h-screen"><div class="flex flex-col w-full pb-16">
+<!-- Top Command & Metrics Deck -->
+<section class="flex flex-col gap-space-lg mb-space-xl">
+<!-- Header Title and Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md uppercase tracking-wider mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container inline-block"></span>
+<span>Módulo Clínico Central</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Directorio de Usuarios y Pacientes</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Gestión de expedientes odontológicos digitales, citas activas y balances financieros.</p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="inline-flex items-center gap-space-xs px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">download_for_offline</span>
+<span>Exportar Expedientes</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-5 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-accent-hover transition-all" id="open-register-modal-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span>+ Registrar Nuevo Paciente</span>
+</button>
+</div>
+</div>
+<!-- Metric Stat Chips / Mini-Bento -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Total Pacientes -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-surface-container-low rounded-full opacity-40 group-hover:scale-110 transition-transform"></div>
+<div class="flex items-center justify-between z-10 mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Total Pacientes</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">groups</span>
+</div>
+</div>
+<div class="z-10 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface">1,420</span>
+<span class="font-label-sm text-label-sm text-status-confirmed flex items-center">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> 4.2%
+          </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1 z-10">Base histórica registrada</span>
+</div>
+<!-- Pacientes Activos -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-status-active-bg rounded-full opacity-60 group-hover:scale-110 transition-transform"></div>
+<div class="flex items-center justify-between z-10 mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Pacientes Activos</span>
+<div class="w-8 h-8 rounded-lg bg-status-active-bg text-status-active flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+</div>
+<div class="z-10 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface">890</span>
+<span class="font-label-sm text-label-sm text-status-confirmed flex items-center">62.6% total</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1 z-10">Tratamiento en los últimos 6 meses</span>
+</div>
+<!-- Nuevos este mes -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-status-confirmed-bg rounded-full opacity-60 group-hover:scale-110 transition-transform"></div>
+<div class="flex items-center justify-between z-10 mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Nuevos este mes</span>
+<div class="w-8 h-8 rounded-lg bg-status-confirmed-bg text-status-confirmed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">person_add_alt</span>
+</div>
+</div>
+<div class="z-10 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-status-confirmed">+48</span>
+<span class="font-label-sm text-label-sm text-status-confirmed bg-status-confirmed-bg px-2 py-0.5 rounded-full font-semibold">+18.5%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1 z-10">12 referidos por campañas</span>
+</div>
+<!-- Personal Médico -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-surface-container rounded-full opacity-50 group-hover:scale-110 transition-transform"></div>
+<div class="flex items-center justify-between z-10 mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Personal Médico</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+</div>
+</div>
+<div class="z-10 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface">8</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Especialistas</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1 z-10">4 gabinetes simultáneos</span>
+</div>
+</div>
+</section>
+<!-- Filter & Search Toolbar -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm mb-space-md">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search Box with multiple attributes -->
+<div class="relative flex-1 min-w-0">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-11 pl-11 pr-4 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container" id="patient-search-input" placeholder="Buscar por Nombre, DNI/RUT, Teléfono o Código de Expediente..." type="text"/>
+</div>
+<!-- Filter Controls Group -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Status Filter -->
+<div class="relative">
+<select class="h-11 px-3.5 pr-8 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer" id="status-filter">
+<option value="all">Estado: Todos</option>
+<option value="activo">Activo</option>
+<option value="curso">Tratamiento en curso</option>
+<option value="alta">De alta</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">keyboard_arrow_down</span>
+</div>
+<!-- Doctor Filter -->
+<div class="relative">
+<select class="h-11 px-3.5 pr-8 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer" id="doctor-filter">
+<option value="all">Doctor: Todos</option>
+<option value="ramos">Dr. Alejandro Ramos</option>
+<option value="valencia">Dra. Claudia Valencia</option>
+<option value="mendoza">Dr. Mateo Mendoza</option>
+<option value="rojas">Dra. Sofia Rojas</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">keyboard_arrow_down</span>
+</div>
+<!-- Payment Balance Filter -->
+<div class="relative">
+<select class="h-11 px-3.5 pr-8 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer">
+<option value="all">Cuenta: Todas</option>
+<option value="paid">Al día</option>
+<option value="debt">Saldo pendiente</option>
+<option value="plan">Plan activo</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-[18px]">keyboard_arrow_down</span>
+</div>
+<button class="h-11 px-3 bg-surface-container-low text-on-surface-variant rounded-lg hover:bg-surface-container hover:text-on-surface transition-colors flex items-center justify-center" title="Limpiar filtros" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_list_off</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Main Patient Table Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col mb-space-lg">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3.5 px-space-md">Paciente / Usuario</th>
+<th class="py-3.5 px-space-md">Contacto</th>
+<th class="py-3.5 px-space-md">Última / Próxima Cita</th>
+<th class="py-3.5 px-space-md">Tratamiento</th>
+<th class="py-3.5 px-space-md">Odontólogo</th>
+<th class="py-3.5 px-space-md">Estado Financiero</th>
+<th class="py-3.5 px-space-md text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface font-body-md text-body-md">
+<!-- Row 1: Camila Navarro -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer" onclick="openPreviewDrawer('Camila Navarro', 'DC-2024-0891', 'Ortodoncia Invisible', 'Dr. Alejandro Ramos', 'Al día', '32 años / Femenino', '+52 55 4192 8831', 'c.navarro@gmail.com', '12 Abr 2024', '28 Oct 2024')">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm shrink-0" data-alt="Portrait photo of a friendly young Hispanic woman named Camila Navarro with a clear smile, clean natural clinic lighting, minimalist modern medical background, wearing a neat pastel shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Yg5dC6vBdnhGYMBk6yUbe1UQtP8X_e5kjm8cddSuZs3L7a_VW0VFNfg8AtIqg5qtIBVVsZej88_oOaJfU4iSsgSEscTJYmKl4f5nKQ3V_C1l4e0iYHkx-IKH3BEykaY8wXbg2O9ALwVGNe2GtOyXv8E9F6bqpMc5yaXxazzBfy8Xsb-mE6igFXxIYfPkdIf0avgBmbiEyjElAIq-Orhders3X76DB6mUAolI2YZbutYXL6QZIdCxBw"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Camila Navarro</span>
+<span class="w-2 h-2 rounded-full bg-status-confirmed" title="Activo"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">32 años • Femenino</span>
+<span class="font-label-sm text-label-sm text-primary font-mono tracking-tight mt-0.5">#DC-2024-0891</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">call</span> +52 55 4192 8831
+                </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span> c.navarro@gmail.com
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Últ: 12 Abr 2024</span>
+<span class="font-label-md text-label-md text-primary flex items-center gap-1 mt-0.5 font-semibold">
+<span class="material-symbols-outlined text-[15px]">event</span> 28 Oct 2024 (10:30)
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Ortodoncia Invisible</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Alineador 14/24</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center text-xs font-semibold">AR</div>
+<span class="font-body-md text-body-md text-on-surface">Dr. Alejandro Ramos</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-status-confirmed-bg text-status-confirmed">
+<span class="w-1.5 h-1.5 rounded-full bg-status-confirmed"></span> Al día ($0.00)
+              </span>
+</td>
+<td class="py-4 px-space-md text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openPreviewDrawer('Camila Navarro', 'DC-2024-0891', 'Ortodoncia Invisible', 'Dr. Alejandro Ramos', 'Al día', '32 años / Femenino', '+52 55 4192 8831', 'c.navarro@gmail.com', '12 Abr 2024', '28 Oct 2024')" title="Ver Expediente" type="button">
+<span class="material-symbols-outlined text-[20px]">clinical_notes</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-status-active hover:bg-surface-container transition-colors" title="Agendar Cita" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Opciones adicionales" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Roberto Solís -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer" onclick="openPreviewDrawer('Roberto Solís', 'DC-2023-1104', 'Implante Titanio #16', 'Dr. Mateo Mendoza', 'Saldo pendiente', '46 años / Masculino', '+52 55 8312 9940', 'rsolis_arq@outlook.com', '03 Oct 2024', '19 Nov 2024')">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-label-lg shrink-0">
+                  RS
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Roberto Solís</span>
+<span class="w-2 h-2 rounded-full bg-status-pending" title="Pendiente"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">46 años • Masculino</span>
+<span class="font-label-sm text-label-sm text-primary font-mono tracking-tight mt-0.5">#DC-2023-1104</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">call</span> +52 55 8312 9940
+                </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span> rsolis_arq@outlook.com
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Últ: 03 Oct 2024</span>
+<span class="font-label-md text-label-md text-primary flex items-center gap-1 mt-0.5 font-semibold">
+<span class="material-symbols-outlined text-[15px]">event</span> 19 Nov 2024 (16:00)
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Implante Dental #16</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fase 2: Osteointegración</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center text-xs font-semibold">MM</div>
+<span class="font-body-md text-body-md text-on-surface">Dr. Mateo Mendoza</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-status-pending-bg text-status-pending">
+<span class="w-1.5 h-1.5 rounded-full bg-status-pending"></span> Saldo $3,450 MXN
+              </span>
+</td>
+<td class="py-4 px-space-md text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openPreviewDrawer('Roberto Solís', 'DC-2023-1104', 'Implante Titanio #16', 'Dr. Mateo Mendoza', 'Saldo pendiente', '46 años / Masculino', '+52 55 8312 9940', 'rsolis_arq@outlook.com', '03 Oct 2024', '19 Nov 2024')" title="Ver Expediente" type="button">
+<span class="material-symbols-outlined text-[20px]">clinical_notes</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-status-active hover:bg-surface-container transition-colors" title="Agendar Cita" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Opciones adicionales" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Dra. Mariana Valdés (Paciente) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer" onclick="openPreviewDrawer('Mariana Valdés', 'DC-2024-0945', 'Blanqueamiento Láser LED', 'Dra. Claudia Valencia', 'Al día', '28 años / Femenino', '+52 55 6012 3389', 'mvaldes@consultores.mx', '22 Sep 2024', 'Por programar')">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm shrink-0" data-alt="Close up professional headshot of a smiling young Hispanic professional woman with healthy white teeth, soft studio medical clinic lighting, light blue accents, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhSFQtkFXQGPLZMAoJm_H-8Ox8pvAEpmJH6C4gEeK3UKsWkq97DHaRgf29UNCXuMeHvluKtPm0XWLDQh_rKfxVSLO-6JA2PqJuJEI8BdKJedN8WAkVm5EcUCKzZ4Zn-WcqFV3VAFDQo7OZrhQaA-i4MxBG-FahYQTKkMRLrCg92LTkc6cz3AB9eN4mvysGeuc-TI_-BwaIY8026QAFx-rVJyJCKLH_oXBa8jH0fVcha14mNW3L0FZ_yg"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Mariana Valdés</span>
+<span class="w-2 h-2 rounded-full bg-status-confirmed" title="Activo"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">28 años • Femenino</span>
+<span class="font-label-sm text-label-sm text-primary font-mono tracking-tight mt-0.5">#DC-2024-0945</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">call</span> +52 55 6012 3389
+                </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span> mvaldes@consultores.mx
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Últ: 22 Sep 2024</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">event_busy</span> Pendiente citar
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-status-active"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Blanqueamiento LED</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sesión final completada</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center text-xs font-semibold">CV</div>
+<span class="font-body-md text-body-md text-on-surface">Dra. Claudia Valencia</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-status-confirmed-bg text-status-confirmed">
+<span class="w-1.5 h-1.5 rounded-full bg-status-confirmed"></span> Al día ($0.00)
+              </span>
+</td>
+<td class="py-4 px-space-md text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openPreviewDrawer('Mariana Valdés', 'DC-2024-0945', 'Blanqueamiento Láser LED', 'Dra. Claudia Valencia', 'Al día', '28 años / Femenino', '+52 55 6012 3389', 'mvaldes@consultores.mx', '22 Sep 2024', 'Por programar')" title="Ver Expediente" type="button">
+<span class="material-symbols-outlined text-[20px]">clinical_notes</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-status-active hover:bg-surface-container transition-colors" title="Agendar Cita" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Opciones adicionales" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Emilio Fuentes -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer" onclick="openPreviewDrawer('Emilio Fuentes', 'DC-2022-0433', 'Endodoncia Molar #46', 'Dr. Alejandro Ramos', 'Plan de pagos activo', '51 años / Masculino', '+52 55 1928 4710', 'efuentes_log@gmail.com', '15 Oct 2024', '04 Nov 2024')">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm shrink-0" data-alt="Portrait photography of a mature gentleman in his 50s with salt and pepper hair, friendly demeanor, pristine modern dental clinic interior in the background, sharp professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2b0w-UnBT3PfIolqRZoyFUjc5-EwZRj5msC9DMrhdRoNb2_SeVptj78RBJwJQMncwwV1GMa_uX8m0lIT8rwZBRV_0VQCN1B8-BwLs_Ly_MDmNBeC6bFsWsmgkZf4ykRyTY9nwvrxV-tbvtPMx-jHCSgBR-Av-ZoqRZ0BKLUqP_Hyw2ezZdjToYqB8Frjqad0EwJWAP3Hi4QfBsgcfCWzEWsDluRE5-rFUiViPIfoftK8cEq8gFiyyDg"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Emilio Fuentes</span>
+<span class="w-2 h-2 rounded-full bg-status-confirmed" title="Activo"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">51 años • Masculino</span>
+<span class="font-label-sm text-label-sm text-primary font-mono tracking-tight mt-0.5">#DC-2022-0433</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">call</span> +52 55 1928 4710
+                </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span> efuentes_log@gmail.com
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Últ: 15 Oct 2024</span>
+<span class="font-label-md text-label-md text-primary flex items-center gap-1 mt-0.5 font-semibold">
+<span class="material-symbols-outlined text-[15px]">event</span> 04 Nov 2024 (11:00)
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Endodoncia #46</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Colocación de corona</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center text-xs font-semibold">AR</div>
+<span class="font-body-md text-body-md text-on-surface">Dr. Alejandro Ramos</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-status-active-bg text-status-active">
+<span class="w-1.5 h-1.5 rounded-full bg-status-active"></span> Plan Activo (2/3)
+              </span>
+</td>
+<td class="py-4 px-space-md text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openPreviewDrawer('Emilio Fuentes', 'DC-2022-0433', 'Endodoncia Molar #46', 'Dr. Alejandro Ramos', 'Plan de pagos activo', '51 años / Masculino', '+52 55 1928 4710', 'efuentes_log@gmail.com', '15 Oct 2024', '04 Nov 2024')" title="Ver Expediente" type="button">
+<span class="material-symbols-outlined text-[20px]">clinical_notes</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-status-active hover:bg-surface-container transition-colors" title="Agendar Cita" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Opciones adicionales" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Laura Gómez -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group cursor-pointer" onclick="openPreviewDrawer('Laura Gómez', 'DC-2024-1209', 'Limpieza Ultrasónica Profiláctica', 'Dra. Sofia Rojas', 'Al día', '23 años / Femenino', '+52 55 3302 1899', 'laura.gomez.d@gmail.com', '01 Oct 2024', '15 Mar 2025')">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-label-lg shrink-0">
+                  LG
+                </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Laura Gómez</span>
+<span class="w-2 h-2 rounded-full bg-status-confirmed" title="Activo"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">23 años • Femenino</span>
+<span class="font-label-sm text-label-sm text-primary font-mono tracking-tight mt-0.5">#DC-2024-1209</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">call</span> +52 55 3302 1899
+                </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span> laura.gomez.d@gmail.com
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Últ: 01 Oct 2024</span>
+<span class="font-label-md text-label-md text-primary flex items-center gap-1 mt-0.5 font-semibold">
+<span class="material-symbols-outlined text-[15px]">event</span> 15 Mar 2025 (Semestral)
+                </span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-status-confirmed"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Limpieza Ultrasónica</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Control preventivo anual</span>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex items-center justify-center text-xs font-semibold">SR</div>
+<span class="font-body-md text-body-md text-on-surface">Dra. Sofia Rojas</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-status-confirmed-bg text-status-confirmed">
+<span class="w-1.5 h-1.5 rounded-full bg-status-confirmed"></span> Al día ($0.00)
+              </span>
+</td>
+<td class="py-4 px-space-md text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" onclick="openPreviewDrawer('Laura Gómez', 'DC-2024-1209', 'Limpieza Ultrasónica Profiláctica', 'Dra. Sofia Rojas', 'Al día', '23 años / Femenino', '+52 55 3302 1899', 'laura.gomez.d@gmail.com', '01 Oct 2024', '15 Mar 2025')" title="Ver Expediente" type="button">
+<span class="material-symbols-outlined text-[20px]">clinical_notes</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-status-active hover:bg-surface-container transition-colors" title="Agendar Cita" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Opciones adicionales" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Summary Footer -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span>Mostrando <strong>1 - 5</strong> de <strong>1,420</strong> pacientes</span>
+<span class="text-outline">•</span>
+<div class="flex items-center gap-1">
+<span>Ver:</span>
+<select class="bg-surface-container-lowest rounded px-2 py-1 text-on-surface font-label-sm text-label-sm focus:outline-none">
+<option>10 por pág.</option>
+<option>25 por pág.</option>
+<option>50 por pág.</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container-lowest text-outline hover:text-on-surface transition-colors disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-sm text-label-sm flex items-center justify-center">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-sm text-label-sm flex items-center justify-center">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-sm text-label-sm flex items-center justify-center">142</button>
+<button class="p-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Side Drawer Contextual Clinical Preview -->
+<aside class="fixed right-0 top-0 h-full w-full max-w-md bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-hidden" id="patient-drawer">
+<!-- Drawer Header -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">account_box</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Expediente Médico</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-tight" id="drawer-name">Camila Navarro</h2>
+</div>
+</div>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" onclick="closePreviewDrawer()">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Drawer Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
+<!-- General Bio Card -->
+<div class="bg-surface p-space-md rounded-xl flex flex-col gap-space-sm">
+<div class="flex justify-between items-center">
+<span class="font-mono font-label-sm text-label-sm text-primary font-bold" id="drawer-exp">#DC-2024-0891</span>
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-status-confirmed-bg text-status-confirmed" id="drawer-status-badge">Al día</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-body-sm font-body-sm text-on-surface-variant mt-1">
+<div><strong class="text-on-surface">Edad:</strong> <span id="drawer-bio">32 años / Femenino</span></div>
+<div><strong class="text-on-surface">Teléfono:</strong> <span id="drawer-phone">+52 55 4192 8831</span></div>
+<div class="col-span-2 truncate"><strong class="text-on-surface">Email:</strong> <span id="drawer-email">c.navarro@gmail.com</span></div>
+</div>
+</div>
+<!-- Quick Interactive Mini Odontogram Visualization -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-primary">dentistry</span>
+            Odontograma Rápido (Estado Cuadrantes)
+          </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">FDI Standard</span>
+</div>
+<div class="p-space-md bg-surface rounded-xl flex flex-col items-center gap-3">
+<!-- Dental Arch Quadrant Schematic (SVG) -->
+<svg class="w-full max-w-[280px] h-28" fill="none" viewbox="0 0 280 110" xmlns="http://www.w3.org/2000/svg">
+<!-- Upper Arch Curve -->
+<path d="M 20 45 C 50 15, 230 15, 260 45" stroke="#CBD5E1" stroke-dasharray="3 3" stroke-width="2"></path>
+<!-- Lower Arch Curve -->
+<path d="M 30 80 C 60 100, 220 100, 250 80" stroke="#CBD5E1" stroke-dasharray="3 3" stroke-width="2"></path>
+<!-- Tooth markers upper -->
+<circle cx="35" cy="40" fill="#FFFFFF" r="8" stroke="#004ac6" stroke-width="2"></circle>
+<text fill="#004ac6" font-size="8" font-weight="bold" text-anchor="middle" x="35" y="43">18</text>
+<circle cx="70" cy="28" fill="#FFFFFF" r="8" stroke="#004ac6" stroke-width="2"></circle>
+<text fill="#004ac6" font-size="8" font-weight="bold" text-anchor="middle" x="70" y="31">14</text>
+<circle cx="115" cy="20" fill="#2563EB" r="8" stroke="#2563EB" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-size="8" font-weight="bold" text-anchor="middle" x="115" y="23">11</text>
+<circle cx="165" cy="20" fill="#2563EB" r="8" stroke="#2563EB" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-size="8" font-weight="bold" text-anchor="middle" x="165" y="23">21</text>
+<circle cx="210" cy="28" fill="#FFFFFF" r="8" stroke="#004ac6" stroke-width="2"></circle>
+<text fill="#004ac6" font-size="8" font-weight="bold" text-anchor="middle" x="210" y="31">24</text>
+<circle cx="245" cy="40" fill="#FFFFFF" r="8" stroke="#004ac6" stroke-width="2"></circle>
+<text fill="#004ac6" font-size="8" font-weight="bold" text-anchor="middle" x="245" y="43">28</text>
+<!-- Tooth markers lower -->
+<circle cx="45" cy="78" fill="#E11D48" r="8" stroke="#E11D48" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-size="8" font-weight="bold" text-anchor="middle" x="45" y="81">47</text>
+<circle cx="90" cy="88" fill="#FFFFFF" r="8" stroke="#004ac6" stroke-width="2"></circle>
+<text fill="#004ac6" font-size="8" font-weight="bold" text-anchor="middle" x="90" y="91">44</text>
+<circle cx="140" cy="94" fill="#059669" r="8" stroke="#059669" stroke-width="2"></circle>
+<text fill="#FFFFFF" font-size="8" font-weight="bold" text-anchor="middle" x="140" y="97">31</text>
+<circle cx="190" cy="88" fill="#FFFFFF" r="8" stroke="#004ac6" stroke-width="2"></circle>
+<text fill="#004ac6" font-size="8" font-weight="bold" text-anchor="middle" x="190" y="91">34</text>
+<circle cx="235" cy="78" fill="#FFFFFF" r="8" stroke="#004ac6" stroke-width="2"></circle>
+<text fill="#004ac6" font-size="8" font-weight="bold" text-anchor="middle" x="235" y="81">37</text>
+</svg>
+<div class="flex items-center justify-center gap-space-md text-label-sm font-label-sm text-on-surface-variant flex-wrap">
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span> Tratamiento activo</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-status-confirmed"></span> Sano / Restaurado</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-error"></span> Alerta / Caries</span>
+</div>
+</div>
+</div>
+<!-- Plan Actual & Próximas Citas -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Detalles del Tratamiento</span>
+<div class="p-space-md bg-surface rounded-xl flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Procedimiento:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="drawer-treatment">Ortodoncia Invisible</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Especialista:</span>
+<span class="font-label-md text-label-md text-on-surface" id="drawer-doctor">Dr. Alejandro Ramos</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-sm font-body-sm text-on-surface-variant">Próxima Visita:</span>
+<span class="font-label-md text-label-md text-primary font-semibold" id="drawer-next-date">28 Oct 2024</span>
+</div>
+</div>
+</div>
+<!-- Clinical Evolution Notes -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Notas Clínicas Recientes</span>
+<div class="flex flex-col gap-space-xs">
+<div class="p-space-sm bg-surface rounded-lg text-body-sm font-body-sm">
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm mb-1">
+<span>Dr. Alejandro Ramos</span>
+<span>12 Abr 2024</span>
+</div>
+<p class="text-on-surface">Se realiza entrega de alineadores 14 al 18. Excelente higiene dental y avance de mordida según lo proyectado en software 3D.</p>
+</div>
+<div class="p-space-sm bg-surface rounded-lg text-body-sm font-body-sm">
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm mb-1">
+<span>Dra. Sofia Rojas</span>
+<span>28 Ene 2024</span>
+</div>
+<p class="text-on-surface">Profilaxis profunda antes de iniciar la etapa media ortodóntica. Sin presencia de sangrado gingival.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-space-md bg-surface-container-low flex items-center gap-space-sm">
+<button class="flex-1 py-2.5 px-3 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-accent-hover transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[18px]">history_edu</span>
+<span>Abrir Expediente Completo</span>
+</button>
+<button class="p-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-lg hover:bg-surface-container transition-colors" title="Imprimir Receta / Ficha">
+<span class="material-symbols-outlined text-[20px]">print</span>
+</button>
+</div>
+</aside>
+<!-- Backdrop Modal for Registering New Patient -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" id="patient-modal-backdrop">
+<div class="bg-surface-container-lowest rounded-xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Registrar Paciente / Usuario</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Crea un nuevo expediente clínico y credenciales de acceso</p>
+</div>
+</div>
+<button class="p-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" id="close-register-modal-btn" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Modal Body Form -->
+<form class="p-space-lg flex-1 overflow-y-auto flex flex-col gap-space-md" id="new-patient-form">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Full Name -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Nombre Completo *</label>
+<input class="h-10 px-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej. Ana Victoria Morales" required="" type="text"/>
+</div>
+<!-- Document ID -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">DNI / Cédula / CURP *</label>
+<input class="h-10 px-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Ej. 0801199412345" required="" type="text"/>
+</div>
+<!-- Date of birth -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Fecha de Nacimiento</label>
+<input class="h-10 px-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" type="date"/>
+</div>
+<!-- Gender -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Género</label>
+<select class="h-10 px-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option>Femenino</option>
+<option>Masculino</option>
+<option>Otro / Prefiero no decir</option>
+</select>
+</div>
+<!-- Contact Phone -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Teléfono Celular *</label>
+<input class="h-10 px-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="+52 55..." required="" type="tel"/>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Correo Electrónico</label>
+<input class="h-10 px-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="paciente@dominio.com" type="email"/>
+</div>
+<!-- Assigned Doctor -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Odontólogo Tratante</label>
+<select class="h-10 px-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option>Dr. Alejandro Ramos (Ortodoncia)</option>
+<option>Dra. Claudia Valencia (Estética)</option>
+<option>Dr. Mateo Mendoza (Cirugía / Implantes)</option>
+<option>Dra. Sofia Rojas (Periodoncia)</option>
+</select>
+</div>
+<!-- Reason / Initial Treatment -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Motivo de Consulta Principal</label>
+<select class="h-10 px-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option>Valoración General</option>
+<option>Ortodoncia / Alineadores</option>
+<option>Limpieza Dental Preventiva</option>
+<option>Dolor / Urgencia Dental</option>
+<option>Implantes Dentales</option>
+<option>Blanqueamiento</option>
+</select>
+</div>
+</div>
+<!-- Clinical Alerts / Allergies -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Alergias o Antecedentes Médicos de Importancia</label>
+<textarea class="p-3 bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container resize-none" placeholder="Ej. Alergia a la penicilina, hipertensión controlada, etc." rows="2"></textarea>
+</div>
+<!-- Checkbox Portal Access -->
+<div class="flex items-center gap-space-xs mt-1">
+<input checked="" class="w-4 h-4 text-primary-container rounded border-outline focus:ring-primary-container" id="user-portal-chk" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface" for="user-portal-chk">Enviar invitación de acceso al Portal del Paciente Denta Clean por correo.</label>
+</div>
+</form>
+<!-- Modal Footer -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-end gap-space-sm">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg hover:bg-surface-container transition-colors" id="cancel-register-modal-btn" type="button">
+          Cancelar
+        </button>
+<button class="px-5 py-2 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-accent-hover shadow-sm transition-colors" form="new-patient-form" type="submit">
+          Guardar Expediente
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script src="/frontend/js/pacientes.js"></script></main></div></body></html>

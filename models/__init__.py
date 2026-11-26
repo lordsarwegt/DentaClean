@@ -1,4 +1,4 @@
-from motor_de_conexion import Base  # noqa: F401
+from database import Base  # noqa: F401
 
 from .procesos import Procesos
 from .orden_radiografia import OrdenRadiografia

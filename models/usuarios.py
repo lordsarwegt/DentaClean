@@ -1,7 +1,7 @@
-from sqlalchemy import BigInteger, Column, String, SmallInteger
+from sqlalchemy import BigInteger, Column, Integer, String, SmallInteger
 from sqlalchemy.dialects.mssql import TINYINT
 from sqlalchemy.dialects.mssql import BINARY
-from motor_de_conexion import Base
+from database import Base
 
 
 class Usuarios(Base):
@@ -12,5 +12,5 @@ class Usuarios(Base):
     correo = Column(String(255), nullable=False)
     contraseña = Column(String(255), nullable=False)
     foto = Column(BINARY(16), nullable=False)
-    rol = Column(String(255), nullable=False)
+    rol = Column(Integer, nullable=False)
     estado = Column(TINYINT, nullable=False)

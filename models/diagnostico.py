@@ -1,6 +1,6 @@
 from sqlalchemy import BigInteger, Column, Text, String, ForeignKey
 
-from motor_de_conexion import Base
+from database import Base
 
 
 class Diagnostico(Base):

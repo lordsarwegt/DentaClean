@@ -1,6 +1,6 @@
 from sqlalchemy import BigInteger, Column, DateTime, String
 from sqlalchemy.dialects.mssql import BINARY
-from motor_de_conexion import Base
+from database import Base
 
 
 class Clientes(Base):

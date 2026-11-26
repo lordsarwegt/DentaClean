@@ -1,6 +1,6 @@
 from sqlalchemy import BigInteger, Column, String, ForeignKey
 
-from motor_de_conexion import Base
+from database import Base
 
 
 class Tratamiento(Base):

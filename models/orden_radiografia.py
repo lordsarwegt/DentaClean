@@ -1,6 +1,6 @@
 from sqlalchemy import BigInteger, Column, Date, String, Text, ForeignKey
 
-from motor_de_conexion import Base
+from database import Base
 
 
 class OrdenRadiografia(Base):

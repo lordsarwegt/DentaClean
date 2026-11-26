@@ -6,7 +6,7 @@ sys.path.insert(0, dirname(dirname(abspath(__file__))))
 
 # 2. Importa la Base y tus modelos
 # (Si la creaste en motor_de_conexion, impórtala de ahí)
-from motor_de_conexion import DATABASE_URL
+from database import DATABASE_URL
 
 # 3. Es MUY IMPORTANTE importar también tus modelos aquí abajo
 # Aunque no los uses directamente, esto hace que Alembic se entere de que existen

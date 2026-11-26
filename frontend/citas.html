@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script src="tailwind.config.js"></script></head><body class="bg-surface text-on-surface font-body-md"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between p-space-md"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-xs"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="material-symbols-outlined text-[20px]">dentistry</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Denta Clean</span><span class="font-label-sm text-label-sm text-on-surface-variant">Consultorio Digital</span></div></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 transition-colors bg-primary-container text-on-primary font-label-lg rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-path="citas" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span>Citas</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pacientes" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Pacientes</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="tratamientos" href="#"><span class="material-symbols-outlined text-[20px]">medical_services</span><span>Tratamientos</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="facturacion" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Facturación</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="configuracion" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Configuración</span></a></nav></div><div class="p-space-sm bg-surface-container rounded-lg flex items-center gap-space-sm"><div class="w-2 h-2 rounded-full bg-status-confirmed"></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-semibold">Clínica Operativa</span><span class="font-body-sm text-body-sm text-on-surface-variant">Sede Central</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex-1 max-w-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-lowest text-on-surface placeholder:text-outline rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container/20" placeholder="Buscar por nombre, expediente o DNI..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Notificaciones"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Dr. Alejandro Ramos</span><span class="font-label-sm text-label-sm text-on-surface-variant">Cirujano Odontólogo</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WfHJanvFdkCl5aPfZ06xUck4CyfcvyDm88Q43BIzAsGRXROAX2M11fY5BovQ66PA8J1N-fb25dPeutW6SCC7hIjBbasXQurxF3Ky6-J_IuPmBlKfVBcmFdqYpj3vtdskoJFfkWPiLPnUbR8N29yBHvgqd_7oBJF8G-N9CwB9LPWSeG2BhRW9JZE7BcVb1UZFMux2vD7-SOzieJ5ShgkCoa1ANB5V3Bsg1o7i8F1usrhnm85VyUYaxM4X93IOQPnv1A5UA5StMFQZM"/></div></div></header><main class="w-full pt-16 bg-surface px-gutter min-h-screen"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Operational Context & KPIs -->
+<div class="flex flex-col gap-space-lg pt-space-md">
+<!-- Title & Top Action Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span>Clínica Sede Central</span>
+<span>•</span>
+<span class="text-status-confirmed font-semibold">Tiempo Real</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Agenda de Citas</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md">Jueves, 24 Octubre 2024</span>
+</div>
+</div>
+<!-- Action Group -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-3.5 py-2.5 rounded-lg bg-surface-container-lowest text-status-cancelled hover:bg-status-cancelled-bg font-label-lg text-label-lg shadow-sm transition-all duration-150" id="quick-urgency-btn">
+<span class="material-symbols-outlined text-[18px]">emergency</span>
+<span>Filtro Urgencias</span>
+<span class="ml-1 px-1.5 py-0.2 rounded-full bg-status-cancelled text-surface-container-lowest text-label-sm font-label-sm">2</span>
+</button>
+<div class="flex items-center bg-surface-container-lowest p-1 rounded-lg shadow-sm">
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md transition-all shadow-sm">Día</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">Semana</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">Mes</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">Lista</button>
+</div>
+<button class="flex items-center gap-space-xs px-4 py-2.5 rounded-lg bg-primary-container hover:bg-accent-hover text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-lg transition-all duration-200" id="btn-nueva-cita">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ Nueva Cita</span>
+</button>
+</div>
+</div>
+<!-- KPI Metric Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wide uppercase">Citas Hoy</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-xl text-headline-xl text-on-surface leading-none">18</span>
+<span class="font-label-sm text-label-sm text-status-confirmed flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 100% cap.
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">3 sillones activos</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[26px]">event_available</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wide uppercase">En Sala de Espera</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-xl text-headline-xl text-status-active leading-none">3</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-status-active animate-ping"></span> 12 min prom.
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Recepción / Triage listo</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-status-active-bg flex items-center justify-center text-status-active">
+<span class="material-symbols-outlined text-[26px]">hourglass_top</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wide uppercase">Completadas</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-xl text-headline-xl text-status-confirmed leading-none">8</span>
+<span class="font-label-sm text-label-sm text-status-confirmed font-semibold">44.4% del día</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Saneamiento al día</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-status-confirmed-bg flex items-center justify-center text-status-confirmed">
+<span class="material-symbols-outlined text-[26px]">check_circle</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wide uppercase">Canceladas / Reagenda</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-xl text-headline-xl text-status-cancelled leading-none">1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Reofertado</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Espacio 16:30 cubierto</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-status-cancelled-bg flex items-center justify-center text-status-cancelled">
+<span class="material-symbols-outlined text-[26px]">event_busy</span>
+</div>
+</div>
+</div>
+<!-- Filter Control Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-md">
+<!-- Date Selector Navigator -->
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-lg">
+<button class="p-1 rounded-md hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Día Anterior">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<div class="flex items-center gap-1.5 px-2 font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">calendar_today</span>
+<span>24 Oct 2024</span>
+</div>
+<button class="p-1 rounded-md hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Día Siguiente">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="h-6 w-px bg-surface-container-high hidden md:block"></div>
+<!-- Chair Filter -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Gabinete:</span>
+<select class="h-9 px-3 bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer">
+<option selected="">Todos los Gabinetes (3)</option>
+<option>Sillón 1 - General &amp; Preventiva</option>
+<option>Sillón 2 - Ortodoncia Avanzada</option>
+<option>Sillón 3 - Cirugía &amp; Implantes</option>
+</select>
+</div>
+<!-- Doctor Filter -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Especialista:</span>
+<select class="h-9 px-3 bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer">
+<option selected="">Todos los Odontólogos</option>
+<option>Dr. Alejandro Ramos (Cirujano)</option>
+<option>Dra. Elena Santoro (Ortodoncista)</option>
+<option>Dr. Javier Méndez (Endodoncia)</option>
+</select>
+</div>
+</div>
+<!-- Quick Legend of Treatment Colors -->
+<div class="flex flex-wrap items-center gap-3 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span>Limpieza/Prev.</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-status-pending"></span>
+<span>Endodoncia</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-status-confirmed"></span>
+<span>Ortodoncia</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-status-cancelled"></span>
+<span>Cirugía/Implante</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Workspace: Timeline Schedule (Left 8 Cols) & Current Patient Detail (Right 4 Cols) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mt-space-lg items-start">
+<!-- Left Column: Master Multi-Chair Day Calendar Grid -->
+<div class="xl:col-span-8 flex flex-col bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Calendar Chair Header -->
+<div class="grid grid-cols-12 bg-surface-container-low py-3.5 px-4 sticky top-0 z-20">
+<div class="col-span-2 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant text-center">Hora</div>
+<!-- Sillón 1 -->
+<div class="col-span-3 flex flex-col items-center border-l border-surface-container-high px-2">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-status-confirmed"></span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold text-center">Sillón 1</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate max-w-full">General &amp; Triage</span>
+</div>
+<!-- Sillón 2 -->
+<div class="col-span-3 flex flex-col items-center border-l border-surface-container-high px-2">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold text-center">Sillón 2</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate max-w-full">Ortodoncia</span>
+</div>
+<!-- Sillón 3 -->
+<div class="col-span-4 flex flex-col items-center border-l border-surface-container-high px-2">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-status-cancelled"></span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold text-center">Sillón 3</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate max-w-full">Cirugía e Implantes</span>
+</div>
+</div>
+<!-- Time Schedule Body -->
+<div class="divide-y divide-surface-container-high relative">
+<!-- Current Time Line Indicator (Simulation for 10:45 AM) -->
+<div class="absolute left-0 right-0 top-[215px] z-30 pointer-events-none flex items-center">
+<div class="w-20 bg-status-cancelled text-surface-container-lowest text-label-sm font-label-sm px-2 py-0.5 rounded-r-md text-right font-semibold shadow-sm">
+            10:45 AM
+          </div>
+<div class="flex-1 h-0.5 bg-status-cancelled/70 shadow-[0_0_8px_rgba(225,29,72,0.4)]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-status-cancelled -mr-1.5"></div>
+</div>
+<!-- 08:00 AM Slot -->
+<div class="grid grid-cols-12 min-h-[92px] items-stretch">
+<div class="col-span-2 py-3 px-2 text-center font-label-md text-label-md text-on-surface-variant flex flex-col items-center justify-start">
+<span class="font-semibold text-on-surface">08:00</span>
+<span class="text-[10px] text-outline">AM</span>
+</div>
+<!-- Chair 1 Slot -->
+<div class="col-span-3 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-status-confirmed-bg/60 p-2 rounded-lg flex flex-col justify-between h-full shadow-xs hover:shadow-sm transition-all border-l-2 border-status-confirmed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Marta Valdés</span>
+<span class="px-1.5 py-0.5 rounded bg-status-confirmed text-surface-container-lowest text-[10px] font-semibold">Hecho</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Limpieza Profiláctica</span>
+<span class="text-[11px] text-outline">Dr. A. Ramos • 45m</span>
+</div>
+</div>
+<!-- Chair 2 Slot -->
+<div class="col-span-3 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-primary-fixed/40 p-2 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-primary-container">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Lucas Herrera</span>
+<span class="px-1.5 py-0.5 rounded bg-status-confirmed-bg text-status-confirmed text-[10px] font-semibold">Hecho</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Ajuste de Arcos</span>
+<span class="text-[11px] text-outline">Dra. E. Santoro • 30m</span>
+</div>
+</div>
+<!-- Chair 3 Slot -->
+<div class="col-span-4 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="h-full rounded-lg bg-surface-container-low/40 flex items-center justify-center text-outline text-label-sm font-label-sm border border-dashed border-outline-variant">
+<span>Mantenimiento Esterilización</span>
+</div>
+</div>
+</div>
+<!-- 09:00 AM Slot -->
+<div class="grid grid-cols-12 min-h-[96px] items-stretch">
+<div class="col-span-2 py-3 px-2 text-center font-label-md text-label-md text-on-surface-variant flex flex-col items-center justify-start">
+<span class="font-semibold text-on-surface">09:00</span>
+<span class="text-[10px] text-outline">AM</span>
+</div>
+<!-- Chair 1 Slot -->
+<div class="col-span-3 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-status-pending-bg p-2 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-status-pending">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Carmen Ortega</span>
+<span class="px-1.5 py-0.5 rounded bg-status-confirmed-bg text-status-confirmed text-[10px] font-semibold">Hecho</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Endodoncia Molar 26</span>
+<span class="text-[11px] text-outline">Dr. J. Méndez • 60m</span>
+</div>
+</div>
+<!-- Chair 2 Slot -->
+<div class="col-span-3 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-surface-container-low/50 p-2 rounded-lg flex items-center justify-center text-on-surface-variant text-label-sm font-label-sm">
+<span class="text-outline">Espacio Disponible</span>
+</div>
+</div>
+<!-- Chair 3 Slot -->
+<div class="col-span-4 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-status-cancelled-bg/70 p-2 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-status-cancelled">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Gabriel Monroy</span>
+<span class="px-1.5 py-0.5 rounded bg-status-confirmed-bg text-status-confirmed text-[10px] font-semibold">Hecho</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Colocación Perno Implante</span>
+<span class="text-[11px] text-outline">Dr. A. Ramos • 90m</span>
+</div>
+</div>
+</div>
+<!-- 10:00 AM Slot (Active Live Slot) -->
+<div class="grid grid-cols-12 min-h-[110px] items-stretch bg-surface-container-low/20">
+<div class="col-span-2 py-3 px-2 text-center font-label-md text-label-md flex flex-col items-center justify-start">
+<span class="font-bold text-primary">10:00</span>
+<span class="text-[10px] text-primary font-semibold">AM</span>
+</div>
+<!-- Chair 1 Slot (IN PROGRESS / SELECTED) -->
+<div class="col-span-3 p-1.5 bg-surface-container-low/40">
+<div class="bg-status-active-bg p-2.5 rounded-lg flex flex-col justify-between h-full shadow-md border-l-4 border-status-active transform ring-2 ring-primary/20">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-primary-container truncate">Sofía Restrepo</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-surface-container-lowest text-[10px] font-bold flex items-center gap-1 animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span> En Sillón
+                </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate mt-1">Revisión de Carillas &amp; Pulido</span>
+<div class="flex items-center justify-between mt-2 pt-1 border-t border-primary/10">
+<span class="text-[11px] text-on-surface-variant">Dr. Ramos • Gab. 1</span>
+<span class="text-[11px] font-semibold text-primary">10:00 - 11:00</span>
+</div>
+</div>
+</div>
+<!-- Chair 2 Slot -->
+<div class="col-span-3 p-1.5">
+<div class="bg-status-confirmed-bg/50 p-2.5 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-status-confirmed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Mateo Rivas</span>
+<span class="px-1.5 py-0.5 rounded-full bg-status-confirmed text-on-primary text-[10px] font-medium">En Consulta</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Cementado Brackets Sup.</span>
+<span class="text-[11px] text-outline">Dra. Santoro • 45m</span>
+</div>
+</div>
+<!-- Chair 3 Slot (Urgencia) -->
+<div class="col-span-4 p-1.5">
+<div class="bg-status-cancelled-bg p-2.5 rounded-lg flex flex-col justify-between h-full shadow-sm border-l-4 border-status-cancelled">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-status-cancelled truncate">Rodrigo Peñaloza</span>
+<span class="px-2 py-0.5 rounded-full bg-status-cancelled text-surface-container-lowest text-[10px] font-bold">Urgencia</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Fractura Incisivo Central 21</span>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Dr. J. Méndez</span>
+<span class="text-status-cancelled font-semibold">Sala Espera</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 11:00 AM Slot -->
+<div class="grid grid-cols-12 min-h-[96px] items-stretch">
+<div class="col-span-2 py-3 px-2 text-center font-label-md text-label-md text-on-surface-variant flex flex-col items-center justify-start">
+<span class="font-semibold text-on-surface">11:00</span>
+<span class="text-[10px] text-outline">AM</span>
+</div>
+<!-- Chair 1 Slot -->
+<div class="col-span-3 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-surface-container-lowest p-2 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-primary-container">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Patricia Caicedo</span>
+<span class="px-1.5 py-0.5 rounded bg-status-confirmed-bg text-status-confirmed text-[10px] font-medium">WhatsApp Ok</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Blanqueamiento Láser</span>
+<span class="text-[11px] text-outline">Dr. A. Ramos • 60m</span>
+</div>
+</div>
+<!-- Chair 2 Slot -->
+<div class="col-span-3 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-surface-container-lowest p-2 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-status-confirmed">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Luciana Vélez</span>
+<span class="px-1.5 py-0.5 rounded bg-status-confirmed-bg text-status-confirmed text-[10px] font-medium">WhatsApp Ok</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Control Invisalign G4</span>
+<span class="text-[11px] text-outline">Dra. E. Santoro • 30m</span>
+</div>
+</div>
+<!-- Chair 3 Slot -->
+<div class="col-span-4 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-status-pending-bg/60 p-2 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-status-pending">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Nicolás Cárdenas</span>
+<span class="px-1.5 py-0.5 rounded bg-status-pending-bg text-status-pending text-[10px] font-medium">Por Confirmar</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Exodoncia Tercer Molar</span>
+<span class="text-[11px] text-outline">Dr. J. Méndez • 45m</span>
+</div>
+</div>
+</div>
+<!-- 12:00 PM Slot -->
+<div class="grid grid-cols-12 min-h-[90px] items-stretch">
+<div class="col-span-2 py-3 px-2 text-center font-label-md text-label-md text-on-surface-variant flex flex-col items-center justify-start">
+<span class="font-semibold text-on-surface">12:00</span>
+<span class="text-[10px] text-outline">PM</span>
+</div>
+<!-- Chair 1 Slot -->
+<div class="col-span-3 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-surface-container-lowest p-2 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-primary-container">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Andrés Galán</span>
+<span class="px-1.5 py-0.5 rounded bg-status-confirmed-bg text-status-confirmed text-[10px] font-medium">Confirmada</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Higiene Ultrasonido</span>
+<span class="text-[11px] text-outline">Dr. A. Ramos • 40m</span>
+</div>
+</div>
+<!-- Chair 2 Slot -->
+<div class="col-span-3 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-surface-container-low/40 rounded-lg p-2 flex items-center justify-center text-outline text-label-sm font-label-sm">
+<span>Receso Higiene</span>
+</div>
+</div>
+<!-- Chair 3 Slot -->
+<div class="col-span-4 p-1.5 bg-surface-bright flex flex-col justify-center">
+<div class="bg-surface-container-lowest p-2 rounded-lg flex flex-col justify-between h-full shadow-xs border-l-2 border-status-cancelled">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Daniela Paz</span>
+<span class="px-1.5 py-0.5 rounded bg-status-confirmed-bg text-status-confirmed text-[10px] font-medium">Confirmada</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Sutura Post-Implante</span>
+<span class="text-[11px] text-outline">Dr. J. Méndez • 30m</span>
+</div>
+</div>
+</div>
+<!-- 13:00 PM Break Slot -->
+<div class="grid grid-cols-12 min-h-[50px] items-stretch bg-surface-container-low/50">
+<div class="col-span-2 py-2 px-2 text-center font-label-md text-label-md text-outline">
+            13:00 PM
+          </div>
+<div class="col-span-10 flex items-center justify-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">restaurant</span>
+<span>Receso Clínico General &amp; Protocolo Desinfección Profunda UV-C</span>
+</div>
+</div>
+</div>
+<!-- Schedule Footer summary -->
+<div class="p-3 bg-surface-container-low flex flex-wrap items-center justify-between text-on-surface-variant font-label-sm text-label-sm border-t border-surface-container-high">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span>Horario operativo: 08:00 - 19:00</span>
+</span>
+<span>•</span>
+<span>Intervalo configurable: 15 / 30 / 60 min</span>
+</div>
+<button class="text-primary hover:text-accent-hover font-semibold flex items-center gap-1">
+<span>Ver disponibilidad de sillones nocturnos</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Siguiente en Turno & Active Patient Card (4 Cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Patient Live Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg flex flex-col relative overflow-hidden">
+<!-- Top Status Banner -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-confirmed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-status-confirmed"></span>
+</span>
+<span class="font-label-md text-label-md text-status-confirmed font-bold tracking-wide uppercase">En Sillón 1 • Actual</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">EXP-2024-0891</span>
+</div>
+<!-- Patient Header Info -->
+<div class="flex items-start gap-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-xl object-cover shadow-sm" data-alt="Portrait photography of a cheerful adult female patient with a clean warm dental smile in a soft clinic background with clinical soft daylight illumination and professional studio framing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVAiDSpwcc3l6zOnu4E5sI-WkCB7Tm-FJ2yzOZ0StRytICBtl1XxUvGCirxlusQOU8yRODu3avvcEnAXVIbnedhdqWp1rGmQl2bCGbV5jDQXXaK1A_oK6jPcESVGvVTvRTa7SEwg1pTPxeLPtkOaDPFVZkBt7AKBVsjRgz7kNbFOnZ55slGabRLKaQ77AuiqcGKtM1biGyYiQ1QOaPyuZgUBE69EwB4V5NEHbwkm9DKOiAT-A9hh02bA"/>
+<span class="absolute -bottom-1 -right-1 bg-primary text-white p-0.5 rounded-full flex items-center justify-center" title="Paciente Frecuente">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-snug truncate">Sofía Restrepo Villa</h2>
+<div class="flex flex-wrap items-center gap-2 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>32 años</span>
+<span>•</span>
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px] text-status-confirmed">call</span>
+                +57 312 849 2011
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold mt-1">Plan: DentaClean Premium Plus</span>
+</div>
+</div>
+<!-- Medical Warning Alert (Penicillin allergy) -->
+<div class="mt-space-md bg-status-cancelled-bg p-space-sm rounded-lg flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-status-cancelled text-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm font-bold text-status-cancelled">ALERTA CLÍNICA CRÍTICA</span>
+<span class="font-body-sm text-body-sm text-status-cancelled leading-tight truncate">Alergia severa confirmada a Penicilina</span>
+</div>
+</div>
+<!-- Appointment Context Specs -->
+<div class="mt-space-md grid grid-cols-2 gap-2 bg-surface-bright p-3 rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Procedimiento:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Revisión Carillas &amp; Pulido</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Especialista a Cargo:</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Dr. Alejandro Ramos</span>
+</div>
+<div class="flex flex-col mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tiempo Restante:</span>
+<span class="font-label-md text-label-md text-status-confirmed font-bold">18 min en consulta</span>
+</div>
+<div class="flex flex-col mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Odontograma:</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Piezas 11, 12, 21, 22</span>
+</div>
+</div>
+<!-- Previous Treatment Notes -->
+<div class="mt-space-md flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider mb-1.5">Notas del Tratamiento Anterior</span>
+<div class="p-3 bg-surface-container-low rounded-lg text-body-sm font-body-sm text-on-surface leading-relaxed">
+            "Paciente reportó ligera sensibilidad gingival post-cementación en cuadrante anterosuperior. Se recomendó colutorio con clorhexidina al 0.12%. Hoy se procederá al recorte de márgenes y pulido con discos ultrafinos."
+          </div>
+</div>
+<!-- Quick Access Mini Odontogram Indicator -->
+<div class="mt-space-md flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Esquema Dental Activo</span>
+<span class="text-primary font-label-sm text-label-sm font-semibold">Sector Anterosuperior</span>
+</div>
+<div class="flex justify-between items-center bg-surface-bright p-3 rounded-lg gap-1">
+<!-- Simulated Tooth 13 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-on-surface-variant font-mono">13</span>
+<div class="w-8 h-8 rounded-md bg-surface-container-high flex items-center justify-center text-[11px] font-semibold text-on-surface">Sano</div>
+</div>
+<!-- Simulated Tooth 12 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-primary font-bold font-mono">12</span>
+<div class="w-8 h-8 rounded-md bg-primary-container text-white flex items-center justify-center text-[11px] font-bold shadow-xs">Car</div>
+</div>
+<!-- Simulated Tooth 11 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-primary font-bold font-mono">11</span>
+<div class="w-8 h-8 rounded-md bg-primary-container text-white flex items-center justify-center text-[11px] font-bold shadow-xs">Car</div>
+</div>
+<!-- Simulated Tooth 21 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-primary font-bold font-mono">21</span>
+<div class="w-8 h-8 rounded-md bg-primary-container text-white flex items-center justify-center text-[11px] font-bold shadow-xs">Car</div>
+</div>
+<!-- Simulated Tooth 22 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-primary font-bold font-mono">22</span>
+<div class="w-8 h-8 rounded-md bg-primary-container text-white flex items-center justify-center text-[11px] font-bold shadow-xs">Car</div>
+</div>
+<!-- Simulated Tooth 23 -->
+<div class="flex flex-col items-center gap-1">
+<span class="text-[10px] text-on-surface-variant font-mono">23</span>
+<div class="w-8 h-8 rounded-md bg-surface-container-high flex items-center justify-center text-[11px] font-semibold text-on-surface">Sano</div>
+</div>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="mt-space-lg flex flex-col gap-2">
+<button class="w-full h-11 bg-primary-container hover:bg-accent-hover text-on-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md transition-all">
+<span class="material-symbols-outlined text-[20px]">medical_services</span>
+<span>Iniciar Consulta / Odontograma</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 bg-surface-container-low hover:bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+<span>Historial Médico</span>
+</button>
+<button class="h-9 bg-surface-container-low hover:bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">radiology</span>
+<span>Radiografías (3)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Waiting Room Queue Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col">
+<div class="flex items-center justify-between pb-3 border-b border-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">group</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Sala de Espera Activa</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">3 en turno</span>
+</div>
+<!-- Queue Item 1 -->
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high/60 hover:bg-surface-bright rounded-lg px-2 transition-colors">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-full bg-status-cancelled-bg text-status-cancelled flex items-center justify-center font-bold text-label-sm">
+              U1
+            </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Rodrigo Peñaloza</span>
+<span class="text-body-sm text-body-sm text-status-cancelled font-medium truncate">Urgencia • Dolor Agudo Molar</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">10:00 AM</span>
+<span class="text-[11px] text-outline">Esperando 14m</span>
+</div>
+</div>
+<!-- Queue Item 2 -->
+<div class="flex items-center justify-between py-3 border-b border-surface-container-high/60 hover:bg-surface-bright rounded-lg px-2 transition-colors">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-label-sm">
+              02
+            </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Patricia Caicedo</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant truncate">Sillón 1 • Blanqueamiento</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">11:00 AM</span>
+<span class="text-[11px] text-status-confirmed font-semibold">En tiempo</span>
+</div>
+</div>
+<!-- Queue Item 3 -->
+<div class="flex items-center justify-between py-3 hover:bg-surface-bright rounded-lg px-2 transition-colors">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-label-sm">
+              03
+            </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Luciana Vélez</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant truncate">Sillón 2 • Invisalign</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">11:00 AM</span>
+<span class="text-[11px] text-outline">Recién llegada</span>
+</div>
+</div>
+<button class="mt-2 py-2 text-center text-primary hover:text-accent-hover font-label-md text-label-md font-semibold flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+<span>Llamar siguiente paciente con timbre</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Slide-over / Modal for Nueva Cita (Hidden by default, triggered by JS) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-4" id="modal-nueva-cita">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl w-full max-w-xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="px-space-lg py-4 bg-surface-container-low flex items-center justify-between border-b border-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">calendar_add_on</span>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Agendar Nueva Cita</h3>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Registre cita en la agenda dental central</span>
+</div>
+</div>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" id="modal-close-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Form Body -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Patient Search / Select -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Paciente Existente o Nuevo *</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">person_search</span>
+<input class="w-full h-10 pl-10 pr-4 bg-surface rounded-lg font-body-md text-body-md text-on-surface border border-border-subtle focus:outline-none focus:border-primary" placeholder="Escriba nombre, identificación o teléfono..." type="text"/>
+</div>
+</div>
+<!-- Gabinete & Odontólogo Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Sillón / Gabinete *</label>
+<select class="h-10 px-3 bg-surface rounded-lg font-body-md text-body-md text-on-surface border border-border-subtle focus:outline-none focus:border-primary">
+<option>Sillón 1 - General &amp; Preventiva</option>
+<option>Sillón 2 - Ortodoncia Avanzada</option>
+<option>Sillón 3 - Cirugía &amp; Implantes</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Odontólogo Tratante *</label>
+<select class="h-10 px-3 bg-surface rounded-lg font-body-md text-body-md text-on-surface border border-border-subtle focus:outline-none focus:border-primary">
+<option>Dr. Alejandro Ramos (Cirugía/Estética)</option>
+<option>Dra. Elena Santoro (Ortodoncia)</option>
+<option>Dr. Javier Méndez (Endodoncia)</option>
+</select>
+</div>
+</div>
+<!-- Fecha, Hora y Duración -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Fecha</label>
+<input class="h-10 px-3 bg-surface rounded-lg font-body-md text-body-md text-on-surface border border-border-subtle focus:outline-none focus:border-primary" type="date" value="2024-10-24"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Hora Inicio</label>
+<input class="h-10 px-3 bg-surface rounded-lg font-body-md text-body-md text-on-surface border border-border-subtle focus:outline-none focus:border-primary" type="time" value="11:30"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Duración Est.</label>
+<select class="h-10 px-3 bg-surface rounded-lg font-body-md text-body-md text-on-surface border border-border-subtle focus:outline-none focus:border-primary">
+<option>30 minutos</option>
+<option selected="">45 minutos</option>
+<option>60 minutos</option>
+<option>90 minutos</option>
+</select>
+</div>
+</div>
+<!-- Tipo de Procedimiento y Prioridad -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Tratamiento Clínico</label>
+<select class="h-10 px-3 bg-surface rounded-lg font-body-md text-body-md text-on-surface border border-border-subtle focus:outline-none focus:border-primary">
+<option>Limpieza Dental &amp; Profilaxis</option>
+<option>Revisión y Ajuste Ortodoncia</option>
+<option>Endodoncia / Tratamiento Conductos</option>
+<option>Exodoncia / Cirugía Oral</option>
+<option>Blanqueamiento Dental</option>
+<option>Urgencia por Dolor</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Recordatorio Automático</label>
+<div class="flex items-center gap-3 h-10">
+<label class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span>WhatsApp Bot</span>
+</label>
+<label class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span>SMS Recordatorio</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Observaciones -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface">Notas y Motivo de Consulta</label>
+<textarea class="p-3 bg-surface rounded-lg font-body-md text-body-md text-on-surface border border-border-subtle focus:outline-none focus:border-primary resize-none" placeholder="Describa síntomas, alergias o notas preliminares..." rows="2"></textarea>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-end gap-space-sm border-t border-surface-container-high">
+<button class="px-4 py-2 rounded-lg bg-surface hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" id="modal-cancel-btn">
+          Cancelar
+        </button>
+<button class="px-5 py-2 rounded-lg bg-primary-container hover:bg-accent-hover text-on-primary font-label-md text-label-md shadow-sm transition-all" id="modal-submit-btn">
+          Guardar y Notificar Cita
+        </button>
+</div>
+</div>
+</div>
+<script src="/frontend/js/citas.js"></script>
+</div></main></div></body></html>

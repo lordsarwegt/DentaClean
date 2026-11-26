@@ -1,7 +1,7 @@
 from sqlalchemy import BigInteger, Column, Date, String, ForeignKey
 from sqlalchemy.sql.sqltypes import Numeric
 
-from motor_de_conexion import Base
+from database import Base
 
 
 class Cotizacion(Base):

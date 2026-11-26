@@ -1,0 +1,7 @@
+#THIS INTERFAS INTERFAS DESING ITS FULL MAKET WITH "GOOGLE STICH" TOO THAT TUNRS PROMTS INTO PIXEL-PERFECT INTERFACES
+
+#DAY ONE
+#two or tree views: login, dates, form
+
+#DAY TOW 
+#conect the edpoints with the CRUD
